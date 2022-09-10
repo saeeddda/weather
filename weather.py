@@ -1,8 +1,8 @@
 import requests
 import json
 
-API_KEY = '519ab2b1a1cc790599a1052ba62c74e4'
-CITY_NAME = 'zanjan'
+API_KEY = 'api-key' # api key from openweathermap.org site
+CITY_NAME = 'city-name' # target city name
 
 def get_city():
     response = requests.get(f'http://api.openweathermap.org/geo/1.0/direct', params={
@@ -26,7 +26,11 @@ def get_weather(lat, lon):
 
     return data
 
-location = get_city()
-weather = get_weather(location[0], location[1])
+# get city location
+location = get_city() # return tuple
 
+# get weather wiht city lat and lon data
+weather = get_weather(location[0], location[1]) # return dic
+
+# simple show data
 print(weather['main']['temp'])
